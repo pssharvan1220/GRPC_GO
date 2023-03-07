@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+service PlayerService{
+    rpc GetAll(Empty) returns (PlayerList){}
+    rpc GetOnePlayer(PlayerRequestId) returns (Player){}
+    rpc Insert(Player) returns (Player){}
+    rpc Update(Player) returns (Player){}
+    rpc Remove(PlayerRequestId) returns (Empty){}
+}
+
+message Empty{}
+
+message Player{
+    string id = 1;
+    string name = 2;
+    string distric = 3;
+}
+
+message PlayerList{
+    repeated Player players = 1;
+}
+
+message PlayerRequestId{
+    string id = 1;
+}
